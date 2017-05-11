@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.model.Field;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -11,8 +12,9 @@ public class WebhookController {
 
 
     @PostMapping(path="/webhook")
-    public String webhookCallBack(@RequestBody String input){
-        return null;
+    public Field webhookCallBack(@RequestBody Field input){
+        System.out.println(input);
+        return input;
     }
 
     @GetMapping(path="/webhook")
