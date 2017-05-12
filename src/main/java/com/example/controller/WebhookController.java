@@ -12,9 +12,8 @@ public class WebhookController {
 
 
     @PostMapping(path="/webhook")
-    public Field webhookCallBack(@RequestBody Field input){
-        System.out.println(input);
-        return input;
+    public String webhookCallBack(@RequestBody Field field){
+        return field.getField();
     }
 
     @GetMapping(path="/webhook")
