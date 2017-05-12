@@ -15,6 +15,7 @@ public class WebhookController {
     Logger logger = LoggerFactory.getLogger("WebHook");
     @PostMapping(path="/webhook")
     public String webhookCallBack(@RequestBody Field field){
+        System.out.println("Received " + field.getField());
         logger.info("Received " + field.getField());
         return field.getField();
     }
