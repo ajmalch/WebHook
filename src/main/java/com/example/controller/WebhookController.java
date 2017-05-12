@@ -13,11 +13,18 @@ import org.springframework.web.bind.annotation.*;
 public class WebhookController {
 
     Logger logger = LoggerFactory.getLogger("WebHook");
+//    @PostMapping(path="/webhook")
+//    public String webhookCallBack(@RequestBody Field field){
+//        System.out.println("Received " + field.getField());
+//        logger.info("Received " + field.getField());
+//        return field.getField();
+//    }
+
     @PostMapping(path="/webhook")
-    public String webhookCallBack(@RequestBody Field field){
-        System.out.println("Received " + field.getField());
-        logger.info("Received " + field.getField());
-        return field.getField();
+    public Object webhookCallBack(@RequestBody Object field){
+        System.out.println("Received " + field);
+        logger.info("Received " + field);
+        return field;
     }
 
     @GetMapping(path="/webhook")
