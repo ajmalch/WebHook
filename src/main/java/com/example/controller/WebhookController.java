@@ -1,6 +1,8 @@
 package com.example.controller;
 
 import com.example.model.Field;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -10,9 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class WebhookController {
 
-
+    Logger logger = LoggerFactory.getLogger("WebHook");
     @PostMapping(path="/webhook")
     public String webhookCallBack(@RequestBody Field field){
+        logger.info("Received " + field.getField());
         return field.getField();
     }
 
